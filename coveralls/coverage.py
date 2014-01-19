@@ -76,6 +76,12 @@ def exclude_paths(args):
 def is_excluded_path(args, filepath):
     """Returns true if the filepath is under the one of the exclude path."""
     excl_paths = exclude_paths(args)
+
+    if args.exclude:
+        for expath in args.exclude:
+            if expath in filepath:
+                return True
+
     # Try regular expressions first.
     for regexp_exclude_path in args.regexp:
         if re.match(regexp_exclude_path, filepath):

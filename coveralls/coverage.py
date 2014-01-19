@@ -176,7 +176,8 @@ def collect(args):
                         else:
                             source_file_path = os.path.abspath(
                                 os.path.join(root, source_file_path))
-                    src_path = os.path.relpath(source_file_path, abs_root)
+                    #src_path = os.path.relpath(source_file_path, abs_root)
+                    src_path = source_file_path
                     if len(src_path) > 3 and src_path[:3] == '../':
                         continue
                     if is_excluded_path(args, source_file_path):
